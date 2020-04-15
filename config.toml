@@ -1,0 +1,4 @@
+baseURL = "https://commana.github.io/"
+languageCode = "de-de"
+title = "YOLO"
+theme = "solar-theme-hugo"
