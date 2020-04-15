@@ -3,5 +3,5 @@
 	url = https://github.com/bake/solar-theme-hugo.git
 [submodule "public"]
 	path = public
-	url = https://github.com/commana/homepage.git
+	url = https://github.com/commana/commana.github.io.git
 	branch = master
