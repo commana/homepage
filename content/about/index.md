@@ -20,10 +20,10 @@ New ideas emerge that will get added to the garden eventually. One might think o
 For me, another key aspect of the digital garden metaphore is the idea of "non-performative blogging": Too often I read about the importance of building one's own brand through blogging and content marketing. Everything needs to be polished, SEO'd, and Instagram'd to perfection.
 But this takes away all the fun. Blogging becomes work. Ultimately, this attitude hinders the planting of seeds in the garden, and nothing will grow.
 
-This site is meant to be my version of the digital garden. I will write about topics that are of interest to me, with most of my content being about Software Engineering. Yet, the beauty of a digital garden is that variety makes it even
-more interesting. Therefore, other topics will be found here as well.
+This site is meant to be my version of the digital garden. In general, I will write about topics that are of interest to me. This will most likely be everything about Software Engineering. Yet, the beauty of a digital garden is that variety makes it even
+more interesting. So expect lots of other topics here, too.
 
-Thank you for dropping by!
+This is only the beginning... Enjoy, and thank you for dropping by!
 
 Best wishes,
 
