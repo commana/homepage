@@ -12,16 +12,85 @@ tags:
 
 A lesson in object orientation and Java
 
-?? Linked lists in Haskell, Scheme, and maybe even C.
-==> use head/tail idea for linked lists (haskell notation)
+What are linked lists? They are a very basic data structure that can be used to store a (theoretically) unbounded number of elements without having to allocate the required space upfront like an array. While an array has O(1) random access, i.e. every element in an array can be accessed in constant time, a linked list does not have this feature. Instead, the list has to be traversed sequentially (typically using a `next` pointer) to reach a specific element, resulting in O(n) access time.
 
-Talk about repl.it: How to run junit?
+A useful linked list supports three operations:
 
 - insert: O(1) ==> insert at the front
-- find: O(n) ==> find the first entry that matches and return it as the head of a smaller linked list
+- find: O(n) ==> find the first entry that matches (and provide it as the head of a smaller linked list)
 - delete: O(n) ==> delete element and reconnect elements to fill the gap
 - what test cases are important for each operation?
 
+So as a really simple exercise I wanted to implement such a linked list in Java (ok, I know, it's 2020...). This should be fairly simple, right?
+
+As it turned out, I failed! My problem weren't the operations, but how I handled encapsulation. My raw linked list entry was accessible to the client, which could do whatever it wanted with it. Specifically, it got hold of a reference to certain elements. This means that we now lost control over our data structure once we want to manipulate it. This wouldn't be a problem with an immutable implementation, but I decided that it should be a mutable linked list, as this felt most natural in Java.
+
+Here is a quick glance on the interface of my first attempt in Java:
+
+```java
+class LinkedList<T> {
+  public T item;
+  public LinkedList<T> next;
+
+  public boolean isEmpty() { ... }
+
+  public LinkedList<T> find(T item) { ... }
+
+  public LinkedList<T> insert(T item) { ... }
+
+  public void delete(T item) { ... }
+}
+```
+
+My problem was with the `insert` operation: How do you insert a new element in front while the client still has a reference to the current first element? My solution was to return a new list, which the client should then use. This exposes more references. Now, the `delete` operation I implemented suddenly wants a mutable linked list (signaled by the `void` return type). Conflict of interest! So we are actually mixing mutable and immutable operations together. No wonder this does not work.
+
+## Mistake #1: No concept of a list head
+
+Linked lists in other languages often follow the idea of a list "head" and a "rest" (also called "tail"). Here are two functional languages that have this concept built in:
+
+```scheme
+(car '(1 2 3))
+> 1
+(cdr '(1 2 3))
+> (2 3)
+```
+
+Apart from the weird syntax and names that Scheme has (those parentheses, `car`, `cdr`), you should probably get that the former corresponds to "head" and the latter to the "tail" of a linked list.
+
+Here is another example in Haskell:
+
+```haskell
+head [1,2,3]
+> 1
+tail [1,2,3]
+> [2,3]
+```
+
+(Yay, I know Haskell! ... After writing a compiler in Haskell, I at least know some aspects of the language.)
+
+The meaning should be fairly obvious here as well. So, how does this help me in implementing a linked list in Java? At the most basic level, accessing an element is only possible through the `head` function. It exposes the value we contain in a linked list element, but nothing else. `head` and `tail` also expose the recursive nature of a linked list. Therefore, it makes sense to have these operations in my own implementation.
+
+## Mistake #2: Not embracing the language
+
+I tried to implement it like in C: having a "pure" data structure (a C-based `struct`) and additionally some procedures, which would operate on the data structure. Since we are working on a mutable version of a list, we should encapsulate everything so that only the key operations are exposed. Everything else should be hidden from the client.
+
+This means we need to maintain our own "head" of the list, and keep the internals of the list private. Just like the `head` and `tail` functions in Haskell do not expose any implementation details.
+
+## Mistake #3: Allowing direct access to linked list elements
+
+I declared all my fields `public`. Fat mistake? Not necessarily, I'm the only one using my linked list class. So obviously, I have nothing to hide from myself lol.
+
 How I tried to implement them ... and failed. I lost control of how the list could be used (clients had "pointers" to elements that should have been deleted)
+
+?? Linked lists in Haskell, Scheme, and maybe even C.
+==> use head/tail idea for linked lists (haskell notation)
+
+
+
+Talk about repl.it: How to run junit?
+
+
+
+
 
 How embracing the language (Java) and with it OO concepts (specifically encapsulation) saved my day.
