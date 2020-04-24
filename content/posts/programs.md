@@ -13,9 +13,25 @@ Inspirations to create programs
 
 1. Use FTL-SDK to send a video to mixer.com
 
+Size: Small
+
 Not really a program, but rather infrastructure (docker).
 
 2. PUBG-API CLI
 
+Size: Small
+
 A program that displays stats from the PUBG-API.
+
+3. PUBG Console Player Queue
+
+Size: Small
+
+Display how many games have been finished in the last 15 minutes to understand how probable it is that another game could start soon.
+
+4. PUBG: It's a bot or not
+
+Size: Large
+
+Show how many Bots were in a particular game, and also tell players how many of their kills were bots. Did a player win a "whole chicken", ie. no bots in the game?
 
