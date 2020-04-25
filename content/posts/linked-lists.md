@@ -46,35 +46,24 @@ My problem was with the `insert` operation: How do you insert a new element in f
 
 ## Mistake #1: No concept of a list head
 
-Linked lists in other languages often follow the idea of a list "head" and a "rest" (also called "tail"). Here are two functional languages that have this concept built in:
-
-```scheme
-(car '(1 2 3))
-> 1
-(cdr '(1 2 3))
-> (2 3)
-```
-
-Apart from the weird syntax and names that Scheme has (those parentheses, `car`, `cdr`), you should probably get that the former corresponds to "head" and the latter to the "tail" of a linked list.
-
-Here is another example in Haskell:
+Linked list implementations in other languages often only allow access to values through a "head" and a "tail" (also called "rest") function:
 
 ```haskell
-head [1,2,3]
-> 1
-tail [1,2,3]
-> [2,3]
+> head [1,2,3]
+1
+> tail [1,2,3]
+[2,3]
 ```
 
-(Yay, I know Haskell! ... After writing a compiler in Haskell, I at least know some aspects of the language.)
-
-The meaning should be fairly obvious here as well. So, how does this help me in implementing a linked list in Java? At the most basic level, accessing an element is only possible through the `head` function. It exposes the value we contain in a linked list element, but nothing else. `head` and `tail` also expose the recursive nature of a linked list. Therefore, it makes sense to have these operations in my own implementation.
+So, how does this help me in implementing a linked list in Java? Accessing an element should only be possible through the `head` function. It exposes the value we contain in a linked list element, but nothing else. `head` and `tail` expose the recursive nature of a linked list, so that the list could be iterated by a combination of calls to `head` and `tail`. As such, it makes sense to have these operations in my own implementation.
 
 ## Mistake #2: Not embracing the language
 
 I tried to implement it like in C: having a "pure" data structure (a C-based `struct`) and additionally some procedures, which would operate on the data structure. Since we are working on a mutable version of a list, we should encapsulate everything so that only the key operations are exposed. Everything else should be hidden from the client.
 
-This means we need to maintain our own "head" of the list, and keep the internals of the list private. Just like the `head` and `tail` functions in Haskell do not expose any implementation details.
+Java is call by value, so references to objects cannot be changed. This is different compared to C, where pointers can be manipulated. Since I did not have a dedicated list head, clients needed to maintained their own head of the list. After insertion, they would need to update the head themselves.
+Since they could keep the previous `head` references in a variable, the deletion of an element was now impossible: since they could still have a reference for the deleted element, it would appear as if that element still existed, even though the element would have been skipped in the "real" list.
+I did not use proper encapsulation as I should. In Java, that's what classes are for. We need to maintain our own `head` of the list, and keep the internals of the list private, by allowing access and manipulation of the list only through dedicated public methods. This is similar to the `head` and `tail` functions in my example above, because they also do not expose any implementation details.
 
 ## Mistake #3: Allowing direct access to linked list elements
 
