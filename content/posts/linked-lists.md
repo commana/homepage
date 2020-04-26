@@ -67,6 +67,8 @@ I did not use proper encapsulation as I should. In Java, that's what classes are
 
 ## Mistake #3: Allowing direct access to linked list elements
 
+data encapsulation and information hiding.
+
 I declared all my fields `public`. Fat mistake? Not necessarily, I'm the only one using my linked list class. So obviously, I have nothing to hide from myself lol.
 
 How I tried to implement them ... and failed. I lost control of how the list could be used (clients had "pointers" to elements that should have been deleted)
