@@ -29,9 +29,23 @@ Size: Small
 
 Display how many games have been finished in the last 15 minutes to understand how probable it is that another game could start soon.
 
-4. PUBG: It's a bot or not
+4. An imager viewer with cmd support
 
-Size: Large
+Size: Big
 
-Show how many Bots were in a particular game, and also tell players how many of their kills were bots. Did a player win a "whole chicken", ie. no bots in the game?
+An idea I had previously about a minimal image viewer that supports manipulation through a lisp-like language. I recently came across the Ronin project which is quite similar to my idea. Something worth stealing.
 
+5. My own blogging editor
+
+Size: Big
+
+I currently use VSCode to write my blog. But it's obviously a bit too overpowered for simple blogging. A funny idea would therefore be to write a simple Markdown-based editor that supports my blogging workflow.
+
+6. My own programming language
+
+Size: Huge
+
+Why not? It's been a long time since I have developed a language. Time to start something new and have fun.
+
+7. Write Unit Tests for a random OSS project
+8. 
