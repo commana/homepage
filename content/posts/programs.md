@@ -2,6 +2,10 @@
 title: "Programs"
 date: 2020-05-09T00:10:56+02:00
 draft: false
+categories:
+- digital garden
+tags:
+- programs
 ---
 
 > I write an average of five new programs every week. Poets have to write poems. I have to write computer programs.

@@ -2,6 +2,10 @@
 title: "About"
 date: 2020-04-15T23:32:01+02:00
 draft: false
+categories:
+- digital garden
+tags:
+- intro
 ---
 
 Welcome to my site, stranger! Happy to have you here.
