@@ -8,8 +8,8 @@ tags:
 - programs
 ---
 
-> I write an average of five new programs every week. Poets have to write poems. I have to write computer programs.
-> - Donald Knuth
+> "I write an average of five new programs every week. Poets have to write poems. I have to write computer programs."
+> -Donald Knuth
 
 Recently, I realized that I haven't been creating real programs for quite some time. I have been creating lots of throwaway scripts, sure, but nothing that felt like a real program. Something that you could give to another person and they would find it useful.
 
