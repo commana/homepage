@@ -12,6 +12,7 @@ hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
 cd public
 
 # Add changes to git.
+git checkout -b pub
 git add .
 
 # Commit changes.
@@ -20,6 +21,10 @@ if [ -n "$*" ]; then
 	msg="$*"
 fi
 git commit -m "$msg"
+
+git checkout master
+git merge pub
+git branch -d pub
 
 # Push source and build repos.
 git push origin master
