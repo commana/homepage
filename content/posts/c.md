@@ -1,7 +1,7 @@
 ---
 title: "C"
 date: 2020-05-12T19:10:49+02:00
-draft: true
+draft: false
 categories:
 - digital garden
 tags:
