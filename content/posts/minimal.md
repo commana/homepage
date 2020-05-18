@@ -40,8 +40,9 @@ Managing Todos
 
 tmux
 
-- Installed a plugin manager from GitHub: https://github.com/tmux-plugins/tpm downloaded to /home/commana.tmux/tmux-plugins/tpm
+- Installed a plugin manager from GitHub: https://github.com/tmux-plugins/tpm downloaded to /home/commana/.tmux/plugins/tpm
 - Using plugins named tmux-sensible and tmux-resurrect, which are automatically downloaded by tpm, see /home/commana/.tmux.conf
 - tmux-resurrect saves sessions across reboots, so that I can keep all my projects open with their respective window layouts.
+- similarly, vim session can be restored, if once types `:mksession` before closing. No plugin needed, but it needs to be enabled in .tmux.conf as well.
 
 
