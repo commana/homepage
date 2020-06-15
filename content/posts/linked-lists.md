@@ -71,17 +71,8 @@ data encapsulation and information hiding.
 
 I declared all my fields `public`. Fat mistake? Not necessarily, I'm the only one using my linked list class. So obviously, I have nothing to hide from myself lol.
 
-How I tried to implement them ... and failed. I lost control of how the list could be used (clients had "pointers" to elements that should have been deleted)
+## Conclusion
 
-?? Linked lists in Haskell, Scheme, and maybe even C.
-==> use head/tail idea for linked lists (haskell notation)
+It is worth it to implement basic data structure in your language of choice. I really thought this would be no problem for me, since I've been programming for many many years now. But because I've been writing mostly high-level code, I sort-of lost the ability to write the more basic stuff. Even though I technically knew how things should work, actually getting down to work and implement these things is a whole different story.
 
-
-
-Talk about repl.it: How to run junit?
-
-
-
-
-
-How embracing the language (Java) and with it OO concepts (specifically encapsulation) saved my day.
+In the future, I will continue writing simple data structures and also, possibly, some algorithms. This will ensure that this knowledge stays in my memory for longer periods of time. Hopefully, I will never forget the basics again.
